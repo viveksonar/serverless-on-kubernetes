@@ -1,0 +1,13 @@
+gcloud beta container clusters create $CLUSTER_NAME \
+--addons HorizontalPodAutoscaling,HttpLoadBalancing \
+--zone $CLUSTER_ZONE \
+--cluster-version $CLUSTER_MASTER_VERSION \
+--machine-type $CLUSTER_NODE_MACHINE_TYPE \
+--num-nodes $CLUSTER_START_NODE_SIZE \
+--min-nodes 1 \
+--max-nodes $CLUSTER_MAX_NODE_SIZE \
+--enable-ip-alias \
+--enable-stackdriver-kubernetes \
+--enable-autoscaling \
+--enable-autorepair \
+--scopes cloud-platform
